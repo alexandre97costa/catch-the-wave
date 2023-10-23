@@ -54,8 +54,8 @@ devDependencies:
     specifier: ^0.25.3
     version: 0.25.8
   web-vitals:
-    specifier: ^3.3.1
-    version: 3.3.1
+    specifier: ^3.5.0
+    version: 3.5.0
 
 packages:
 
@@ -2034,8 +2034,8 @@ packages:
       - terser
     dev: true
 
-  /web-vitals@3.3.1:
-    resolution: {integrity: sha512-LTfY5GjcY3ngFzNsYFSYL+AmVmlWrzPTUxSMDis2rZbf+SzT7HH3NH4Y/l45XOlrAIunOBeURN9qtBHkRskAiA==}
+  /web-vitals@3.5.0:
+    resolution: {integrity: sha512-f5YnCHVG9Y6uLCePD4tY8bO/Ge15NPEQWtvm3tPzDKygloiqtb4SVqRHBcrIAqo2ztqX5XueqDn97zHF0LdT6w==}
     dev: true
 
   /webidl-conversions@3.0.1:
