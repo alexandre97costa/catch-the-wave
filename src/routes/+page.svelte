@@ -18,7 +18,9 @@
 			</picture>
 		</span>
 
-		to your new<br />SvelteKit app<br />This proves the build operation works
+		to your new<br />SvelteKit app
+		<br />This proves the build operation works
+		<br />AGAIN
 	</h1>
 
 	<h2>
