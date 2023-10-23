@@ -18,7 +18,7 @@
 			</picture>
 		</span>
 
-		to your new<br />SvelteKit app<br />buiiiiild
+		to your new<br />SvelteKit app<br />This proves the build operation works
 	</h1>
 
 	<h2>
