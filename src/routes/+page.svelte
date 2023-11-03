@@ -2,13 +2,16 @@
 	// import type { PageData } from './$types';
 	import '../app.postcss';
 
-	export let data;
+	export let data
 </script>
 
 <main>
 	<h1>SvelteKit & Supabase Auth</h1>
 	{#if data.session}
 		<p>Welcome, {data.session.user.email}</p>
+		<form action="/logout" method="POST">
+			<button type="submit" class="btn btn-primary">Logout</button>
+		</form>
 	{:else}
 		<p>Let's learn how to register and login users!</p>
 		<div class="auth-buttons">
