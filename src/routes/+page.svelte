@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	// import type { SubmitFunction } from '$app/forms';
 	import { supabaseCLient } from '$lib/supabase';
 
 	// import type { PageData } from './$types';
