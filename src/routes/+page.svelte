@@ -4,7 +4,7 @@
 	import { supabaseCLient } from '$lib/supabase';
 	import type { PageData } from './$types';
 
-	// import { PageData } from './$types';
+	// import { PageData } from './$types';k
 
 	export let data: PageData;
 
