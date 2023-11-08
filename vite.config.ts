@@ -7,7 +7,6 @@ export default defineConfig({
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	},
 	define: {
-		_global: ({})
-
-	}
+        _global: ({})
+    }
 });
