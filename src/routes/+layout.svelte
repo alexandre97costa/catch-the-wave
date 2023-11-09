@@ -2,12 +2,12 @@
 	import './styles.css';
 	import { invalidate, invalidateAll } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { supabaseCLient } from '$lib/supabase';
+	import { supabaseClient } from '$lib/supabase';
 
 	onMount(() => {
 		const {
 			data: { subscription }
-		} = supabaseCLient.auth.onAuthStateChange(() => {
+		} = supabaseClient.auth.onAuthStateChange(() => {
 			invalidateAll();
 		});
 
