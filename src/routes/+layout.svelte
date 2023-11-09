@@ -13,7 +13,10 @@
 		LightSwitch,
 		type PopupSettings,
 		storePopup,
-		popup
+		popup,
+
+		Avatar
+
 	} from '@skeletonlabs/skeleton';
 	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
 	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
@@ -28,11 +31,6 @@
 	const popupLogin: PopupSettings = {
 		event: 'click',
 		target: 'popupLogin',
-		placement: 'bottom'
-	};
-	const popupRegister: PopupSettings = {
-		event: 'click',
-		target: 'popupRegister',
 		placement: 'bottom'
 	};
 
@@ -64,7 +62,11 @@
 <AppShell regionPage="relative" slotPageHeader="sticky top-0 z-10">
 	<svelte:fragment slot="header">
 		<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
-			<svelte:fragment slot="lead"><span class="h3">Wave</span></svelte:fragment>
+			<svelte:fragment slot="lead">
+				<a href="/">
+					<span class="h3">Wave</span>
+				</a>
+			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<LightSwitch />
 
@@ -106,7 +108,7 @@
 
 					<!-- btn account -->
 					<button type="button" class="btn hover:variant-soft-primary" use:popup={popupAccount}>
-						<span>Conta</span>
+						<i class="bi bi-person-circle h4"></i>
 						<i class="bi bi-caret-down-fill text-surface-500" />
 					</button>
 				{:else}
@@ -117,12 +119,12 @@
 								<span> Email </span>
 								<input class="input" name="email" title="Email" type="email" placeholder="email" />
 							</label>
-							<label class="label mb-3" for="password">
+							<label class="label mb-4" for="password">
 								<span> Password </span>
 								<input class="input" type="password" name="password" />
 							</label>
 
-							<button type="submit" class="btn variant-filled-surface">Login</button>
+							<button type="submit" class="btn variant-filled-surface w-full">Login</button>
 						</form>
 					</div>
 
@@ -131,15 +133,10 @@
 						<span>Login</span>
 					</button>
 
-					<!-- popup register -->
-					<div class="card p-4 w-72 shadow-xl variant-filled" data-popup="popupRegister">
-						<div><p>Demo Content</p></div>
-					</div>
-
 					<!-- btn register -->
-					<button type="button" class="btn variant-filled" use:popup={popupRegister}>
-						<span>Criar conta</span>
-					</button>
+					<a href="/register" class="btn variant-filled">
+						Criar conta
+					</a>
 				{/if}
 			</svelte:fragment>
 		</AppBar>
