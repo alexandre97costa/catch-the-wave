@@ -4,15 +4,17 @@
 <main>
 	<h1>Login</h1>
 	<form action="?/login" method="post" class="d-flex flex-column gap-3">
-		<div class="">
-			<label class="form-label" for="">Email</label>
-			<input class="form-control" type="text" name="email" />
-		</div>
-		<div class="">
-			<label class="form-label" for="">Password</label>
-			<input class="form-control" type="password" name="password" />
-		</div>
+		<label class="label" for="">
+			<span> Email </span>
 
-		<button type="submit" class="btn btn-primary w-100">Login</button>
+			<input class="input" title="Input (text)" type="text" placeholder="input text" />
+		</label>
+		<label class="label" for="">
+			<span> Password </span>
+
+			<input class="input" type="password" name="password" />
+		</label>
+
+		<button type="submit" class="btn variant-filled-surface">Login</button>
 	</form>
 </main>

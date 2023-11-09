@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '../app.postcss';
 	import './styles.css';
 	import { invalidate, invalidateAll } from '$app/navigation';
 	import { onMount } from 'svelte';
