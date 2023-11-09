@@ -5,7 +5,6 @@ export const load: PageServerLoad = async ({ params }) => {
 	const { data } = await supabaseClient.from('wave').select();
 
 	return {
-		countries: data ?? [],
-		params: params ?? []
+		waves: data ?? []
 	};
 };

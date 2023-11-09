@@ -1,10 +1,15 @@
-<script>
-	export let data;
+<script lang="ts">
+	import type { PageData } from './$types';
+
+	export let data: PageData;
+
+	$: {
+		console.log(data);
+	}
 </script>
 
 <ul>
-    hello {data.params.slug}
-	{#each data.countries as country}
-		<li>{country.name}</li>
+	{#each data.waves as wave}
+		<li>{wave}</li>
 	{/each}
 </ul>
