@@ -4,7 +4,8 @@
 	import { invalidate, invalidateAll } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { supabaseClient } from '$lib/supabase';
-	import type { PageData } from './$types';
+	import { enhance, type SubmitFunction } from '$app/forms';
+	import type { LayoutData } from './$types';
 
 	import {
 		AppBar,
@@ -17,23 +18,30 @@
 	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
 	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
-	export let data: PageData;
+	export let data: LayoutData;
 
-	const popupLogin: PopupSettings = {
-		// Represents the type of event that opens/closed the popup
+	const popupAccount: PopupSettings = {
 		event: 'click',
-		// Matches the data-popup value on your popup element
+		target: 'popupAccount',
+		placement: 'bottom'
+	};
+	const popupLogin: PopupSettings = {
+		event: 'click',
 		target: 'popupLogin',
-		// Defines which side of your trigger the popup will appear
 		placement: 'bottom'
 	};
 	const popupRegister: PopupSettings = {
-		// Represents the type of event that opens/closed the popup
 		event: 'click',
-		// Matches the data-popup value on your popup element
 		target: 'popupRegister',
-		// Defines which side of your trigger the popup will appear
 		placement: 'bottom'
+	};
+
+	const submitLogout:SubmitFunction = async ({ cancel }) => {
+		const { error } = await supabaseClient.auth.signOut();
+		if (error) {
+			console.log(error);
+		}
+		cancel();
 	};
 
 	onMount(() => {
@@ -61,13 +69,50 @@
 				<LightSwitch />
 
 				{#if data.session}
-					<button type="button" class="btn variant-ringed-surface">
+					<!-- popup account -->
+					<div class="card p-4 w-72 shadow-xl variant-surface" data-popup="popupAccount">
+						<nav class="list-nav">
+							<ul>
+								<li>
+									<a href="/elements/lists">
+										<i class="bi bi-person-fill"></i>
+										<span class="flex-auto">Perfil</span>
+									</a>
+								</li>
+								<li>
+									<form action="/logout" method="POST"  use:enhance={submitLogout}>
+										<button type="submit" class="w-full items-start">
+											<i class="bi bi-box-arrow-right"></i>
+											<span class="">Sair</span></button>
+									</form>
+								</li>
+								<hr/>
+								<li>
+									<a href="/elements/lists">
+										<span class="badge-icon variant-filled"><i class="bi bi-soundwave"></i></span>
+										<span class="flex-auto">Os meus waves</span>
+									</a>
+								</li>
+								<li>
+									<a href="/elements/lists">
+										<span class="badge-icon variant-filled"><i class="bi bi-star-fill"></i></span>
+										<span class="flex-auto">Favoritos</span>
+									</a>
+								</li>
+								
+							</ul>
+						</nav>
+					</div>
+
+					<!-- btn account -->
+					<button type="button" class="btn hover:variant-soft-primary" use:popup={popupAccount}>
 						<span>Conta</span>
+						<i class="bi bi-caret-down-fill text-surface-500" />
 					</button>
 				{:else}
 					<!-- popup login -->
 					<div class="card p-4 w-72 shadow-xl variant-surface" data-popup="popupLogin">
-						<form action="?/login" method="post" class="d-flex flex-column gap-3">
+						<form action="/login" method="post" class="d-flex flex-column gap-3">
 							<label class="label mb-3" for="email">
 								<span> Email </span>
 								<input class="input" name="email" title="Email" type="email" placeholder="email" />
@@ -81,7 +126,8 @@
 						</form>
 					</div>
 
-					<button type="button" class="btn variant-ringed-surface" use:popup={popupLogin}>
+					<!-- btn login -->
+					<button type="button" class="btn hover:variant-soft-primary" use:popup={popupLogin}>
 						<span>Login</span>
 					</button>
 
@@ -90,8 +136,9 @@
 						<div><p>Demo Content</p></div>
 					</div>
 
+					<!-- btn register -->
 					<button type="button" class="btn variant-filled" use:popup={popupRegister}>
-						<span>Register</span>
+						<span>Criar conta</span>
 					</button>
 				{/if}
 			</svelte:fragment>
@@ -99,7 +146,7 @@
 	</svelte:fragment>
 
 	<slot />
-	<svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
+	<svelte:fragment slot="pageFooter" />
 </AppShell>
 
 <!-- 
