@@ -1,11 +1,13 @@
 <script>
 	export let data;
 
+	let user = data.user[0];
+
 	$: {
-		console.log(data);
+		user = data.user[0];
 	}
 </script>
 
 <ul>
-    hello {data.user[0].first_name} {data.user[0].last_name}
+    hello {user.first_name} {user.last_name}
 </ul>

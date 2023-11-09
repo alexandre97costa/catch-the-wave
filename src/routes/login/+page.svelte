@@ -2,13 +2,17 @@
 </script>
 
 <main>
-    <h1>Login</h1>
-    <form action="?/login" method="post" class="auth-form">
-        <label for="">Email</label>
-        <input type="text" name="email">
-        <label for="">Password</label>
-        <input type="password" name="password">
-        
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
+	<h1>Login</h1>
+	<form action="?/login" method="post" class="d-flex flex-column gap-3">
+		<div class="">
+			<label class="form-label" for="">Email</label>
+			<input class="form-control" type="text" name="email" />
+		</div>
+		<div class="">
+			<label class="form-label" for="">Password</label>
+			<input class="form-control" type="password" name="password" />
+		</div>
+
+		<button type="submit" class="btn btn-primary w-100">Login</button>
+	</form>
 </main>
