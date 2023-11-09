@@ -2,10 +2,12 @@ import { supabaseClient } from '$lib/supabase';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
-    const { data } = await supabaseClient.from("profiles").select();
+    const { data } = await supabaseClient
+    .from('profile')
+    .select('first_name, last_name')
+    .eq('id', params?.slug ?? 'a');
 
 	return {
-        countries: data ?? [],
-        params: params ?? []
+        user: data ?? []
       };
 };
