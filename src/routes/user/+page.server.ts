@@ -13,6 +13,6 @@ export const load: PageServerLoad = async ({ params, parent }) => {
     .eq('id', session?.user.id);
 
   return {
-    user: data ?? []
+    user: data?.[0] 
   };
 };

@@ -7,13 +7,6 @@
 	let user = data.user;
 	let audio_source: any;
 
-	$: {
-		console.log(data);
-
-		if (data.errors[0]) {
-			console.log('has error');
-		}
-	}
 </script>
 
 <ul>

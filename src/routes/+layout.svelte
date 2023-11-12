@@ -23,6 +23,10 @@
 
 	export let data: LayoutData;
 
+	$ : {
+		console.log(data.session);
+	}
+
 	const popupAccount: PopupSettings = {
 		event: 'click',
 		target: 'popupAccount',
@@ -76,7 +80,7 @@
 						<nav class="list-nav">
 							<ul>
 								<li>
-									<a href="/elements/lists">
+									<a href="/user/">
 										<i class="bi bi-person-fill"></i>
 										<span class="flex-auto">Perfil</span>
 									</a>
@@ -88,7 +92,7 @@
 											<span class="">Sair</span></button>
 									</form>
 								</li>
-								<hr/>
+								<!-- <hr/>
 								<li>
 									<a href="/elements/lists">
 										<span class="badge-icon variant-filled"><i class="bi bi-soundwave"></i></span>
@@ -100,7 +104,7 @@
 										<span class="badge-icon variant-filled"><i class="bi bi-star-fill"></i></span>
 										<span class="flex-auto">Favoritos</span>
 									</a>
-								</li>
+								</li> -->
 								
 							</ul>
 						</nav>

@@ -3,10 +3,11 @@
 
 	export let data:PageData;
 
-	let user = data.user[0];
+	let user = data.user;
 
 	$: {
-		user = data.user[0];
+		user = data.user;
+		console.log(data.user)
 	}
 </script>
 
