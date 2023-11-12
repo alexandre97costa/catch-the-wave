@@ -23,7 +23,7 @@ const config = {
 	plugins: [
 		forms,
 		skeleton({
-			themes: { preset: [ { name: "skeleton", enhancements: true } ] }
+			themes: { preset: [ { name: "wintry", enhancements: true } ] }
 		})
 	]
 } satisfies Config;

@@ -124,7 +124,7 @@
 								<input class="input" type="password" name="password" />
 							</label>
 
-							<button type="submit" class="btn variant-filled-surface w-full">Login</button>
+							<button type="submit" class="btn variant-filled-primary w-full">Login</button>
 						</form>
 					</div>
 
@@ -134,7 +134,7 @@
 					</button>
 
 					<!-- btn register -->
-					<a href="/register" class="btn variant-filled">
+					<a href="/register" class="btn variant-ghost-primary">
 						Criar conta
 					</a>
 				{/if}
