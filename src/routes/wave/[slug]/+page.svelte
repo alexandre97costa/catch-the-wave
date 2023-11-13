@@ -16,5 +16,5 @@
 	{/if}
 
 	<div class="h1 mb-4">{data.wave?.name}</div>
-	<audio controls src={data.audio_source} />
+	<audio controls autoplay src={data.audio_source} />
 </main>
